@@ -6,12 +6,17 @@
 
 (def plate
   (model/difference
-    (lib/generate-cluster layouts/keypad-layout false)
-    (lib/generate-cluster layouts/keypad-layout true)))
+    (lib/generate-cluster layouts/keypad-layout :full)
+    (lib/generate-cluster layouts/keypad-layout :plate)))
+
+(def top
+  (model/difference
+    (lib/generate-cluster layouts/keypad-layout :full)
+    (lib/generate-cluster layouts/keypad-layout :top)))
 
 (def parts
-  {"plate.scad" plate
-   "top.scad" plate})
+  {"top.scad" top
+   "plate.scad" plate})
 
 (defn -main
   [& _args]

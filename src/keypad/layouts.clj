@@ -20,3 +20,10 @@
 (defn knob [] :knob)
 
 (defn knob? [elem] (= :knob elem))
+
+(def keypad-layout {:layout [[(knob), (space 1), (knob)]
+                             [1, 1, 1],
+                             [1, 1, 1],
+                             [1, 1, 1]]
+                    :x-offset 0
+                    :y-offset 0})
