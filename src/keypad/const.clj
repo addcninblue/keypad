@@ -1,0 +1,13 @@
+(ns keypad.const)
+
+(def PLATE_SQUARE_SIZE 19.05)
+(def SWITCH_SQUARE_SIZE 14)
+(def KEYCAP_SQUARE_SIZE 18)
+
+(def PLATE_HEIGHT 5)
+(def BASE_HEIGHT 3)
+(def OUTER_WIDTH 3)
+(def INNER_WIDTH 1)
+
+(def AUDIO_LENGTH 18)
+(def AUDIO_RADIUS (/ 8.2 2))
