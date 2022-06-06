@@ -66,3 +66,10 @@
             (->> (generate-elem elem cutout-type)
                  (model/translate [(* j const/PLATE_SQUARE_SIZE) (* i const/PLATE_SQUARE_SIZE)])))))
       (model/translate [(cluster :x-offset) (cluster :y-offset)])))
+
+(defn add-border
+  "2D: Adds border to cluster."
+  [block]
+  (model/minkowski
+    block
+    (model/circle const/BORDER_RADIUS)))

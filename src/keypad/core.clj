@@ -6,12 +6,14 @@
 
 (def plate
   (model/difference
-    (lib/generate-cluster layouts/keypad-layout :full)
+    (lib/add-border
+      (lib/generate-cluster layouts/keypad-layout :full))
     (lib/generate-cluster layouts/keypad-layout :plate)))
 
 (def top
   (model/difference
-    (lib/generate-cluster layouts/keypad-layout :full)
+    (lib/add-border
+      (lib/generate-cluster layouts/keypad-layout :full))
     (lib/generate-cluster layouts/keypad-layout :top)))
 
 (def parts
