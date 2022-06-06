@@ -41,19 +41,21 @@
   ((cond (= :full cutout-type) plate-placeholder
          (= :top cutout-type) plate-placeholder
          (= :plate cutout-type) switch
-         (= :keycaps cutout-type) keycaps)
+         (= :wiring cutout-type) plate-placeholder)
    elem))
 
 (defmethod generate-elem :knob [_elem cutout-type]
   (->> (cond (= :full cutout-type) (model/square const/PLATE_SQUARE_SIZE const/PLATE_SQUARE_SIZE)
              (= :top cutout-type) (model/with-fn const/FN (model/circle const/KY-040_RADIUS_TOP))
              (= :plate cutout-type) (model/with-fn const/FN (model/circle const/KY-040_RADIUS_PLATE))
+             (= :wiring cutout-type) (model/square const/PLATE_SQUARE_SIZE const/PLATE_SQUARE_SIZE))
        (plate-placeholder-offset 1)))
 
 (defmethod generate-elem :space [elem cutout-type]
   (cond (= :full cutout-type) (plate-placeholder (layouts/space-width elem))
         (= :top cutout-type) nil
-        (= :plate cutout-type) nil))
+        (= :plate cutout-type) nil
+        (= :wiring cutout-type) (plate-placeholder (layouts/space-width elem))))
 
 (defn generate-cluster
   "2D: Generate keys based on cluster.
