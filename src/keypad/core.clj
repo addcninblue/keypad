@@ -24,4 +24,4 @@
   [& _args]
   (dorun
     (for [[filename component] parts]
-      (spit (str "render/" filename) (scad/write-scad component)))))
+      (spit (str "scad/" filename) (scad/write-scad component)))))
