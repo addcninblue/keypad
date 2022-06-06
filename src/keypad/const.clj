@@ -11,3 +11,5 @@
 
 (def AUDIO_LENGTH 18)
 (def AUDIO_RADIUS (/ 8.2 2))
+(def KY-040_RADIUS_TOP (/ 16 2))
+(def KY-040_RADIUS_PLATE (/ 7 2))
