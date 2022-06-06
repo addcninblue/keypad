@@ -46,8 +46,8 @@
 
 (defmethod generate-elem :knob [_elem cutout-type]
   (->> (cond (= :full cutout-type) (model/square const/PLATE_SQUARE_SIZE const/PLATE_SQUARE_SIZE)
-             (= :top cutout-type) (model/circle const/KY-040_RADIUS_TOP)
-             (= :plate cutout-type) (model/circle const/KY-040_RADIUS_PLATE))
+             (= :top cutout-type) (model/with-fn const/FN (model/circle const/KY-040_RADIUS_TOP))
+             (= :plate cutout-type) (model/with-fn const/FN (model/circle const/KY-040_RADIUS_PLATE))
        (plate-placeholder-offset 1)))
 
 (defmethod generate-elem :space [elem cutout-type]
@@ -72,4 +72,4 @@
   [block]
   (model/minkowski
     block
-    (model/circle const/BORDER_RADIUS)))
+    (model/with-fn const/FN (model/circle const/BORDER_RADIUS))))

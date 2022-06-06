@@ -1,5 +1,7 @@
 (ns keypad.const)
 
+(def FN 50)
+
 (def PLATE_SQUARE_SIZE 19.05)
 (def SWITCH_SQUARE_SIZE 14)
 (def KEYCAP_SQUARE_SIZE 18)
