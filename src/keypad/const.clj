@@ -18,3 +18,5 @@
 
 (def KY-040_RADIUS_TOP (/ 16 2))
 (def KY-040_RADIUS_PLATE (/ 7 2))
+
+(def CUTOUT_WIDTH 7)

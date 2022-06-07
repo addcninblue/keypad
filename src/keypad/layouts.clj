@@ -1,8 +1,15 @@
-(ns keypad.layouts)
+(ns keypad.layouts
+  (:require [keypad.const :as const]))
 
-(def keypad-layout [[1, 1, 1],
-                    [1, 1, 1],
-                    [1, 1, 1]])
+(defn max-height
+  [cluster]
+  (* (count (:layout cluster)) const/PLATE_SQUARE_SIZE))
+
+(defn max-width
+  [cluster]
+  (*
+   (apply max (map count (:layout cluster)))
+   const/PLATE_SQUARE_SIZE))
 
 (defn space
   [width]

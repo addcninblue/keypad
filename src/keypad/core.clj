@@ -5,15 +5,8 @@
   (:require [keypad.lib :as lib])
   (:require [keypad.const :as const]))
 
-; TODO: Figure out stem height of rotary knob. If > 5mm, we're good
-(def top
-  (model/extrude-linear
-    {:height const/PLATE_HEIGHT
-     :center false}
-    (model/difference
-      (lib/add-border
-        (lib/generate-cluster layouts/keypad-layout :full))
-      (lib/generate-cluster layouts/keypad-layout :top))))
+(def cutout-x-offset (/ (layouts/max-width layouts/keypad-layout) 2))
+(def cutout-y-offset (+ (/ const/BORDER_RADIUS 2) (layouts/max-height layouts/keypad-layout)))
 
 (defn generate-layer
   [cutout-type]
@@ -23,7 +16,9 @@
     (model/difference
       (lib/add-border
         (lib/generate-cluster layouts/keypad-layout :full))
-      (lib/generate-cluster layouts/keypad-layout cutout-type))))
+      (lib/generate-cluster layouts/keypad-layout cutout-type)
+      (model/translate [cutout-x-offset cutout-y-offset]
+                       (lib/generate-cutout const/CUTOUT_WIDTH const/BORDER_RADIUS cutout-type)))))
 
 ; TODO: Figure out stem height of rotary knob. If > 5mm, we're good
 (def top (generate-layer :top))

@@ -69,6 +69,12 @@
                  (model/translate [(* j const/PLATE_SQUARE_SIZE) (* i const/PLATE_SQUARE_SIZE)])))))
       (model/translate [(cluster :x-offset) (cluster :y-offset)])))
 
+(defn generate-cutout
+  [width height cutout-type]
+  (if (= :wiring cutout-type)
+    (model/square width height)
+    nil))
+
 (defn add-border
   "2D: Adds border to cluster."
   [block]
