@@ -131,5 +131,8 @@ linear_extrude (height=5){
         }
       }
     }
+    translate ([28.575000000000003, 77.62875, ]) {
+      square ([7, 2.8575], center=true);
+    }
   }
 }
